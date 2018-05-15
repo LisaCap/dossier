@@ -86,7 +86,7 @@ if(isset($_POST["titre"]) && isset($_POST["description"]) && isset($_POST["capac
     }
     
 
-    //Notre requete d'ajout de salle////////////////////////////
+    //Notre requete d'ajout de salle OU de modification////////////////////////////
 
     if($erreur == false)
     {
@@ -109,9 +109,10 @@ if(isset($_POST["titre"]) && isset($_POST["description"]) && isset($_POST["capac
             
 		$ajouter_salle = $pdo->prepare("INSERT INTO salle (titre, description, capacite, categorie, pays, ville, code_postal, adresse, photo) VALUES (:titre, :description, :capacite, :categorie, :pays, :ville, :code_postal, :adresse, '$photo_bdd')");
             
-        } else{ // C'est une modification d'emprunt
+        } else{ // C'est une modification de salle
             
             $id_salle = $_POST['id_salle']; // pour la modification 
+            $photo_bdd = $_POST['photo_bdd'];
             
             $ajouter_salle = $pdo->prepare("UPDATE salle SET titre = :titre, description = :description, capacite = :capacite, categorie = :categorie, pays = :pays, ville = :ville, code_postal = :code_postal, adresse = :adresse, photo = '$photo_bdd' WHERE id_salle = :id_salle");
             //le WHERE pour ne pas modifier tous les produits de la table...
@@ -191,6 +192,8 @@ include("inc/back/nav.inc.php");
                 
                 <!--On rajoute un champ caché (type hidden) pour voir l'Id_salle lors d'une modification-->
 	            <input type="hidden" name="id_salle" value="<?php echo $id_salle; ?>" >
+	            <input type="hidden" name="photo_bdd" value="<?php echo $photo_bdd; ?>" >
+	            
 	            <!------------------------------------------------------------------------>
                 
                 <!--TITRE------------------------------------------------------->
