@@ -1,0 +1,34 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+textarea{
+    resize: none;
+}
+
+th{
+    background-color: #f2f2f2;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+    background-color: black;
+}
+
+/**PAGEWRAPPER - GLOBAL*******************************************/
+
+#page-wrapper{
+    direction: initial;
+}
+
+#page-wrapper h2{
+    color: grey;
+}
+
+.tableau {
+    max-width: 150px;
+}
+
